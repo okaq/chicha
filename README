@@ -11,3 +11,4 @@ Target platform is any browser capable of rendering HTML5 Canvas.
 Games written in javascript.
 Fast procedural techniques favored.
 Custom server written on nodeJS dynamically sends game files to user. 
+Design centered on a spiritual component.
