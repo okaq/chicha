@@ -41,6 +41,8 @@ var roaku = {
 		this.files = [
 			new this.rest(),
 			new this.rest(),
+			new this.rest(),
+			new this.rest(),
 			new this.rest()
 		];
 
@@ -69,6 +71,21 @@ var roaku = {
 			roaku.files[2].fd = data;
 		});
 
+		this.files[3].url = 'ab/speed.html';
+		this.files[3].encoding = 'utf-8';
+		this.files[3].header = this.files[0].headers[1];
+		roaku.fs.readFile(this.files[3].url, this.files[3].encoding, function(err, data) {
+			if (err) throw err;
+			roaku.files[3].fd = data;
+		});
+
+		this.files[4].url = 'ab/speed.js';
+		this.files[4].encoding = 'utf-8';
+		this.files[4].header = this.files[0].headers[2];
+		roaku.fs.readFile(this.files[4].url, this.files[4].encoding, function(err, data) {
+			if (err) throw err;
+			roaku.files[4].fd = data;
+		});
 	},
 	"rest": function() {
 		this.url = '';
@@ -109,6 +126,12 @@ var roaku = {
 			}
 			if (req.url == '/') {
 				file = roaku.files[0];
+			}
+			if (req.url == '/ab/speed.js') {
+				file = roaku.files[4];
+			}
+			if (req.url == '/speed') {
+				file = roaku.files[3];
 			}
 			if (file != undefined) {
 				res.writeHead(200, file.header);
