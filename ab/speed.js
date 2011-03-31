@@ -272,16 +272,50 @@ var d = {
 
 var t = {
 	"init": function() {
+		/*
 		s.con.font = "48pt sans-serif";
 		s.con.fillStyle = 'rgba(48,48,48,1.0)';
 		s.con.fillText("speed test",96,128);
 		s.con.fillText("click to run",90,384);
+		*/
+		
+		s.con.fillStyle = 'rgba(255,255,255,1.0)';
+		s.con.fillRect(0,108,s.can.width-64,48);
+		s.con.font = "24pt monospace";
+		this.bench = "HTML5 Canvas Plasma";
+		for (var i = 0; i < this.bench.length; i++) {
+			var c0 = this.bench.charAt(i);
+			s.con.fillStyle = 'rgba(55,55,55,1.0)';
+			s.con.fillText(c0, 36 + i * 20, 142); // "HTML5 Canvas Plasma Benchmark", 4, 162);
+		}
+
+		s.con.fillStyle = 'rgba(255,255,255,1.0)';
+		s.con.fillRect(128,300,s.can.width-128,40);
+		s.con.font = "18pt monospace";
+		this.perf = "test your device's speed";
+		s.con.fillStyle = "rgba(25,25,25,1.0)";
+		s.con.fillText(this.perf,146,328);
+
+		s.con.fillStyle = "rgba(255,255,255,1.0)";
+		s.con.fillRect(76,426,350,40);
+		s.con.font = "18pt monospace";
+		this.click = "click anywhere to start";
+		s.con.fillStyle = "rgba(35,35,35,1.0)";
+		s.con.fillText(this.click,90,455);
 	},
 	"update": function(f0) {
+		/*
 		s.con.font = "42pt sans-serif";
 		s.con.fillStyle = 'rgba(50,50,50,1.0)';
 		s.con.fillText("result: " + f0 + "ms",96,150);
 		s.con.fillText("avg: 1000ms", 96, 340);
+		*/
+		s.con.fillStyle = "rgba(0,0,0,1.0)";
+		s.con.fillRect(0,450,s.can.width,54);
+		s.con.font = "17pt sans-serif";
+		this.split = "your result = " + f0 + "ms. global average = 1000ms.";
+		s.con.fillStyle = "rgba(255,255,255,1.0)";
+		s.con.fillText(this.split,8,484);
 	}
 }
 
