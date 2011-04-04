@@ -9,7 +9,7 @@ var g = {
 		
 		// init 
 		this.init_size();
-		this.tick_size();
+		// this.tick_size();
 		// this.resize(null);
 		this.init_mouse();
 		
@@ -32,13 +32,14 @@ var g = {
 		// margin factor
 		this.fX = 1;
 		this.fY = 1;
-		this.nX -= 2 * this.fX;
-		this.nY -= 2 * this.fY;
+		//this.nX -= 2 * this.fX;
+		//this.nY -= 2 * this.fY;
 	},
 	"resize": function(evt) {
 		g.tick_size();
 	},
 	"tick_size": function() {
+		/*
 		this.nX = (window.innerWidth / this.bX) >>> 0;
 		this.nY = (window.innerHeight / this.bY) >>> 0;
 		this.nX -= 2 * this.fX;
@@ -47,14 +48,22 @@ var g = {
 		// this.epsilon.height = 80; // (this.nY * this.bY) >>> 0;
 		this.cX = (this.nX * this.bX) >>> 0;
 		this.cY = (this.nY * this.bY) >>> 0;
+		*/
+		this.cX = (window.innerWidth - (2 * this.fX * this.bX)) >>> 0;
+		this.cY = (window.innerHeight - (2 * this.fY * this.bY)) >>> 0;
 		// n.b. Chrome does not allow canvas.width to be set directly (set via css)
 		// console.log("epsilon.width: " + this.epsilon.width + " epsilon.height: " + this.epsilon.height);
-		this.epsilon.style.setProperty("width", this.cX.toString() + 'px', 'important');
-		this.epsilon.style.setProperty("height", this.cY.toString() + 'px', 'important');
+		//this.epsilon.style.setProperty("width", this.cX.toString() + 'px', 'important');
+		//this.epsilon.style.setProperty("height", this.cY.toString() + 'px', 'important');
 		this.delta.style.setProperty("width", this.cX.toString() + 'px', 'important');
 		this.delta.style.setProperty("height", this.cY.toString() + 'px', 'important');
-		this.con = this.epsilon.getContext('2d');
+		this.epsilon.style.setProperty("width", this.cX.toString() + 'px', 'important');
+		this.epsilon.style.setProperty("height", this.cY.toString() + 'px', 'important');
+		// this.con = this.epsilon.getContext('2d');
+		// this.con = this.con;
 		// this.con.clearRect(0,0,this.epsilon.width,this.epsilon.height);
+		// this.init_size();
+		this.init();
 		l.loop();
 	},
 	"init_mouse": function() {
@@ -172,6 +181,6 @@ var l = {
 }
 
 window.onload = l.load;
-window.onresize = g.resize;
+// window.onresize = g.resize;
 window.onblur = l.pause;
 window.onfocus = l.resume;

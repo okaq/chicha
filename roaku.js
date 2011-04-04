@@ -43,6 +43,7 @@ var roaku = {
 			new this.rest(),
 			new this.rest(),
 			new this.rest(),
+			new this.rest(),
 			new this.rest()
 		];
 
@@ -86,6 +87,15 @@ var roaku = {
 			if (err) throw err;
 			roaku.files[4].fd = data;
 		});
+
+		this.files[5].url = 'ab/leek.js';
+		this.files[5].encoding = 'utf-8';
+		this.files[5].header = this.files[0].headers[2];
+		roaku.fs.readFile(this.files[5].url, this.files[5].encoding, function(err, data) {
+			if (err) throw err;
+			roaku.files[5].fd = data;
+		});
+
 	},
 	"rest": function() {
 		this.url = '';
@@ -132,6 +142,9 @@ var roaku = {
 			}
 			if (req.url == '/speed') {
 				file = roaku.files[3];
+			}
+			if (req.url == '/ab/leek.js') {
+				file = roaku.files[5];
 			}
 			if (file != undefined) {
 				res.writeHead(200, file.header);
