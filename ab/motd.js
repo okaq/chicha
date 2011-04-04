@@ -1,12 +1,14 @@
 var motd = {
 	"init": function() {
-		console.log("motd: " + this.msg);
+		this.now = (new Date()).toUTCString();
+		this.msg = "Greetings. Request served at: " + this.now + ". Let's begin some thing new.";
+		console.log(this.msg);
 		
 		// init text styles
-		g.draw = this.draw;
-		l.loop();
+		// g.draw = this.draw;
+		// l.loop();
+		g.set(motd.draw);
 	},
-	"msg": "greetings. today is march 27, 2011. open to new experience.",
 	"draw": function() {
 		g.con.fillStyle = c.rgba();
 		g.con.fillRect(0, 0, g.epsilon.width, g.epsilon.height);
@@ -16,7 +18,7 @@ var motd = {
 		// g.con.fillText(motd.msg, 32, 328);
 		var p0 = g.cX / 2 >>> 0;
 		var p1 = g.cY / 4 >>> 0;
-		g.con.font = '40px Geo'; // p0 + 'px Geo';
+		g.con.font = '40px monospace'; // p0 + 'px Geo';
 		g.con.fillText(" OKAQ", 0, p1*2);
 		// l.pause();
 	}

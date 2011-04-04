@@ -5,15 +5,19 @@ var g = {
 		this.delta = this.doc.getElementById('delta');
 		this.epsilon = this.doc.getElementById('epsilon');
 		this.con = this.epsilon.getContext('2d');
-
+		this.head = this.doc.getElementById('zeta'); 
+		
 		// init 
 		this.init_size();
 		this.tick_size();
 		// this.resize(null);
 		this.init_mouse();
+		
+		// bkgd 
+		this.clear(); 
 
 		// dynamic scripts
-		d.init();
+		d.motd();
 	},
 	"init_size": function() {
 		// fixed block size
@@ -61,20 +65,25 @@ var g = {
 	"click": function(evt) {
 		return;
 	},
+	"clear": function(c0) {
+		g.con.fillStyle = (c0 == undefined) ? c.rgba(1.0) : c0;
+		g.con.fillRect(0, 0, g.epsilon.width, g.epsilon.height);
+	},
 	"draw": function() {
 		// console.log("g.draw called.");
 		// g.epsilon.width = g.epsilon.width;
-		g.con.fillStyle = c.rgba(1.0);
-		g.con.fillRect(0, 0, g.epsilon.width, g.epsilon.height);
+		// g.clear();
 		g.con.fillStyle = c.rgba(1.0);
 		g.con.fillRect(g.xm-8, g.ym-8, 16, 16);
+	},
+	"set": function(f0) {
+		g.draw = f0;
+		l.loop();
 	}
 }
 
 var d = {
 	"init": function() {
-		this.head = document.getElementById('zeta');
-		
 		this.script = document.createElement('script');
 		this.script.type = 'text/javascript';
 		this.script.src = '/ab/motd.js';
@@ -88,13 +97,24 @@ var d = {
 		});
 		console.log(this.head);
 		*/
-		this.head.appendChild(this.script);
+		g.head.appendChild(this.script);
 		this.script.onreadystatechange = this.handle;
 		this.script.onload = this.handle;
 	},
 	"handle": function() {
 		motd.init();
 		console.log(this);
+	},
+	"motd": function() {
+		d.load('/ab/motd.js', function(){motd.init()});
+	},
+	"load": function(src0, cb0) {
+		var script0 = document.createElement('script');
+		script0.type = 'text/javascript';
+		script0.src = src0;
+		g.head.appendChild(script0);
+		script0.onreadystatechange = cb0;
+		script0.onload = cb0;
 	}
 }
 
