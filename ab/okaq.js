@@ -20,9 +20,12 @@ var g = {
 		d.motd();
 	},
 	"init_size": function() {
+		// no need for grid 'objects' in g class
+		// grid completely described by quantities:
+		// block size, count, margin
 		// fixed block size
-		this.bX = 40;
-		this.bY = 40;
+		this.bX = 16;
+		this.bY = 16;
 		// variable block count
 		this.nX = (this.epsilon.width / this.bX) >>> 0;
 		this.nY = (this.epsilon.height / this.bY) >>> 0;
