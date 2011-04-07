@@ -14,14 +14,14 @@ var tenkion = {
 		
 		// static_files
 		var nile0 = new nile();
-		this.nile1 = new nile();
 		this.niles = [
 			new nile(nile0.a[0], nile0.b[0], nile0.b[5]),
 			new nile(nile0.a[1], nile0.b[0], nile0.b[3]),
 			new nile(nile0.a[2], nile0.b[0], nile0.b[5]),
 			new nile(nile0.a[3], nile0.b[0], nile0.b[3]),
 			new nile(nile0.a[4], nile0.b[0], nile0.b[5]),
-			new nile(nile0.a[5], nile0.b[0], nile0.b[5])
+			new nile(nile0.a[5], nile0.b[0], nile0.b[5]),
+			new nile(nile0.a[6], nile0.b[0], nile0.b[5])
 		];
 		this.load();
 		this.serve();
@@ -55,7 +55,7 @@ var tenkion = {
 			} else if (req.url == "/speed") {
 				i0 = 3;				
 			} else {
-				i0 = tenkion.nile1.a.indexOf(req.url);
+				i0 = tenkion.niles[0].a.indexOf(req.url);
 			}	
 			if (i0 != undefined && i0 != -1) {
 				res.writeHead(200, tenkion.niles[i0].hdr);
@@ -93,7 +93,8 @@ nile.prototype.a = [
 	"/ab/motd.js",
 	"/ab/speed.html",
 	"/ab/speed.js",
-	"/ab/leek.js"
+	"/ab/leek.js",
+	"/ab/chardata.js"
 ]; // nextus: use fs.readdir()
 
 tenkion.init();
