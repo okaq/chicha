@@ -152,6 +152,14 @@ var c = {
 			a];
 
 		return('hsla(' + c0.join(',') + ')');	
+	},
+	"comp": function(a) {
+		var c0 = [this.r8(),
+			this.r8(),
+			this.r8(),
+			a || this.r8];
+		
+		return c0;
 	}
 }
 

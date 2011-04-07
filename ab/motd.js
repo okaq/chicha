@@ -39,7 +39,13 @@ var motd = {
 		*/
 		if (motd.chars_load == true) {
 			var id0 = g.con.createImageData(g.bX, g.bY);
+			var id1 = g.con.createImageData(g.bX, g.bY);
+			var id2 = g.con.createImageData(g.bX, g.bY);
+			var id3 = g.con.createImageData(g.bX, g.bY);
 			var c0 = [c.r8(),c.r8(),c.r8(),c.r8()];
+			var c1 = [c.r8(),c.r8(),c.r8(),c.r8()];
+			var c2 = [c.r8(),c.r8(),c.r8(),c.r8()];
+			var c3 = [c.r8(),c.r8(),c.r8(),c.r8()]; // c.comp();
 			for (var i = 0; i < id0.data.length; i+=4) {
 				 var i0 = (i / 4) >>> 0;
 				 if (chardata.A[i0] == 1) {
@@ -48,8 +54,30 @@ var motd = {
 					id0.data[i+2] = c0[2];
 					id0.data[i+3] = 255; // c0[3];
 				 }
+				 if (chardata.O[i0] == 1) {
+				 	id1.data[i+0] = c1[0];
+					id1.data[i+1] = c1[1];
+					id1.data[i+2] = c1[2];
+					id1.data[i+3] = 255; // c0[3];
+				 }
+				 if (chardata.Q[i0] == 1) {
+				 	id2.data[i+0] = c2[0];
+					id2.data[i+1] = c2[1];
+					id2.data[i+2] = c2[2];
+					id2.data[i+3] = 255; // c0[3];
+				 }
+				 if (chardata.K[i0] == 1) {
+				 	id3.data[i+0] = c3[0];
+					id3.data[i+1] = c3[1];
+					id3.data[i+2] = c3[2];
+					id3.data[i+3] = 255; // c3[3];
+				 }
+
 			}
-			g.con.putImageData(id0,0,0);
+			g.con.putImageData(id0,32,0);
+			g.con.putImageData(id1,0,0);
+			g.con.putImageData(id2,48,0);
+			g.con.putImageData(id3,16,0);
 		}
 	}
 }
