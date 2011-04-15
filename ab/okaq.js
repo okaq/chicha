@@ -128,6 +128,11 @@ var d = {
 		script0.onreadystatechange = cb0;
 		script0.onload = cb0;
 	}
+	/*
+	* "rand" function to load random nano game.
+	* "games" list of extant games.
+	* "played" stats concerning games played/frequency.
+	*/
 }
 
 var c = {

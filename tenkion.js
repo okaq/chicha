@@ -95,6 +95,14 @@ nile.prototype.a = [
 	"/ab/speed.js",
 	"/ab/leek.js",
 	"/ab/chardata.js"
+	/* kokaqu is our tools app
+	// located in chicha to expose to user
+	// kigu: grid drawing tool (color, export to json)
+	"/kokaqu/ko.html",
+	"/kokaqu/ko.js",
+	"/kokaqu/kigu.html",
+	"/kokaqu/kigu.js"
+	*/
 ]; // nextus: use fs.readdir()
 
 tenkion.init();
