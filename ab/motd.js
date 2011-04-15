@@ -19,7 +19,7 @@ var motd = {
 	},
 	"draw": function() {
 		motd.tick++;
-		if (motd.tick > 100) {
+		if (motd.tick > 16) {
 			l.pause();
 			motd.next();
 		}

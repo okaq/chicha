@@ -18,26 +18,57 @@ var leek = {
 	},
 	"step_grid": function() {
 		var grid0 = new Array(g.nX * g.nY);
-		for (var i = 0; i < ((g.nX - 2) * (g.nY - 2)); i++) {
-			var ix = (1 + i) % g.nX;
-			var iy = (1 + i) % g.nY;
-			var i0 = iy + g.nX + ix;
+		for (var i = 0; i < grid0.length; i++) {
+			grid0[i] = this.life[i];
+		}
+		var s1 = ((g.nX - 1) * (g.nY - 1)); 
+		for (var i = 0; i < s1; i++) {
+			// var ix = (1 + i) % g.nX;
+			// var iy = (1 + i) % g.nY;
+			var ix = i % s1;
+			var iy = i / s1 >>> 0;
+			// var i0 = iy + g.nX + ix;
+			var i0 = (g.nX * (iy + 1))  + (1 + ix)
 			var s0 = 0;
-			if ((i0 - g.nX) == true) {
+			// nearest neighbor calculation
+			if (this.life[(i0 - g.nX - 1)] == true) {
 				s0 += 1;
 			}
-			if ((i0 - 1) == true) {
+			if (this.life[(i0 - g.nX)] == true) {
 				s0 += 1;
 			}
-			if ((i0 + 1) == true) {
+			if (this.life[(i0 - g.nX + 1)] == true) {
 				s0 += 1;
 			}
-			if ((i0 + g.nX == true) {
+			if (this.life[(i0 - 1)] == true) {
 				s0 += 1;
 			}
-			if (s0 == 0) {
-				
+			if (this.life[(i0 + 1)] == true) {
+				s0 += 1;
 			}
+			if (this.life[(i0 + g.nX - 1)] == true) {
+				s0 += 1;
+			}
+			if (this.life[(i0 + g.nX)] == true) {
+				s0 += 1;
+			}
+			if (this.life[(i0 + g.nX + 1)] == true) {
+				s0 += 1;
+			}
+			// life rules
+			if ((s0 == 3) && this.life[i0] == false) {
+				grid0[i0] = true;
+			}
+			if (this.life[i0] == true) {
+				if ((s0 == 2) || (s0 == 3)) {
+					grid0[i0] = true;
+				} else {
+					grid0[i0] = false;
+				}
+			}
+		}
+		for (var i = 0; i < grid0.length; i++) {
+			this.life[i] = grid0[i];
 		}
 	},
 	"draw": function() {
@@ -52,11 +83,11 @@ var leek = {
 			}	
 		}
 
-		if (leek.tick % 160 == 0) {
+		if (leek.tick % 600 == 0) {
 			leek.init_grid();
 		}
 
-		if (leek.tick % 8 == 0) {
+		if (leek.tick % 2 == 0) {
 			leek.step_grid();
 		}
 	}
