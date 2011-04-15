@@ -65,9 +65,9 @@ var tenkion = {
 				res.end("The app you requested: " + req.url + " does not exist.\n" + (new Date().toUTCString()));
 			}
 		});	
-			console.log("okaq.com web server (tenkion) started. Listening on port 8000...");
+			console.log("okaq.com web server (tenkion) started. Live on okaq.no.de...");
 		
-		this.server.listen(8000, "127.0.0.1");
+		this.server.listen(80);
 	}
 }
 
