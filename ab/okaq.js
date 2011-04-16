@@ -158,6 +158,14 @@ var c = {
 
 		return('hsla(' + c0.join(',') + ')');	
 	},
+	"hue": function(h) {
+		var c0 = [h,
+			'100%',
+			'50%',
+			1.0];
+		
+		return('hsla(' + c0.join(',') + ')');	
+	},
 	"comp": function(a) {
 		var c0 = [this.r8(),
 			this.r8(),

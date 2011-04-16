@@ -71,8 +71,16 @@ var leek = {
 			this.life[i] = grid0[i];
 		}
 	},
+	"next": function() {
+		d.load('/ab/naif.js', function(){naif.init()});
+	},
 	"draw": function() {
 		leek.tick++;
+		if (leek.tick > 100) {
+			// ensure previous script draw calls stop executing
+			l.pause();
+			leek.next();
+		}
 		g.clear(leek.bkgd);
 		for (var i = 0; i < leek.grid.length; i++) {
 			if (leek.life[i] == true) {
@@ -83,7 +91,7 @@ var leek = {
 			}	
 		}
 
-		if (leek.tick % 600 == 0) {
+		if (leek.tick % 100 == 0) {
 			leek.init_grid();
 		}
 

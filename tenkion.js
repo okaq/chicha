@@ -21,7 +21,8 @@ var tenkion = {
 			new nile(nile0.a[3], nile0.b[0], nile0.b[3]),
 			new nile(nile0.a[4], nile0.b[0], nile0.b[5]),
 			new nile(nile0.a[5], nile0.b[0], nile0.b[5]),
-			new nile(nile0.a[6], nile0.b[0], nile0.b[5])
+			new nile(nile0.a[6], nile0.b[0], nile0.b[5]),
+			new nile(nile0.a[7], nile0.b[0], nile0.b[5])
 		];
 		this.load();
 		this.serve();
@@ -94,7 +95,8 @@ nile.prototype.a = [
 	"/ab/speed.html",
 	"/ab/speed.js",
 	"/ab/leek.js",
-	"/ab/chardata.js"
+	"/ab/chardata.js",
+	"/ab/naif.js"
 	/* kokaqu is our tools app
 	// located in chicha to expose to user
 	// kigu: grid drawing tool (color, export to json)
