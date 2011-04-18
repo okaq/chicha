@@ -1,0 +1,13 @@
+Web tech used for okaq.com
+Created by: aq@okaq.com
+On: 04/18/2011
+
+OS: Joyent SmartMachine
+Server: NodeJS
+Cache: Redis
+DB: MongoDB
+Load Balancer: ZXTM
+Process Manager: Upstart
+Deployment: Capistrano
+IPC: AMQP/RabbitMQ
+
