@@ -1,0 +1,19 @@
+Machi Design Doc
+url: okaq.com/machi
+creator: aq@okaq.com
+date: 04/19/2011
+
+Machi is the okaq.com block pixel drawing tool.
+Similar in nature to a favicon generator, Machi 
+works as a web app that can export images.
+
+Workflow:
+Set number of blocks in a square (eg 8x8).
+Set square size of brush tool (eg 1x1).
+Pick color from HSLA color sliders.
+Snap to grid during hover over grid.
+Click (mousedown) to fill block area.
+Erase fill area using eraser tool.
+Save to cloud with alphanumeric name.
+Export to JSON file consisting of a single
+array of CSS3 HSLA colors.
