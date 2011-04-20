@@ -17,3 +17,17 @@ Erase fill area using eraser tool.
 Save to cloud with alphanumeric name.
 Export to JSON file consisting of a single
 array of CSS3 HSLA colors.
+
+GIFS:
+The GIF file format, although portable
+and compact, leaves a lot to be desired.
+A client side GIF generator is possible
+provided we can fill a JS buffer and 
+render it to an <img> on the page.
+Probably using an data image URI.
+This is preferable to a roundtrip
+to the server to use giflib(node-gif)
+to encode the image which is CPU
+intensive and involves a disk write.
+Conclusion: keep it JSON, canvas,
+and avoid GIFs altogether.

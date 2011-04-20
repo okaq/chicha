@@ -11,3 +11,16 @@ Process Manager: Upstart
 Deployment: Capistrano
 IPC: AMQP/RabbitMQ
 
+add 04202011
+JSON Router: cloudhead/journey
+Caching CouchDB client: cloudhead/cradle
+ORM: cloudhead/resourcer
+Static: node-static
+Gifs: node-gif
+Session/cookies:
+Log: indexzero/winston
+Socket: learnboost/socketio
+BDD: VowsJS
+Process Manager: cloudzero/forever,
+    learnboost/cluster
+
