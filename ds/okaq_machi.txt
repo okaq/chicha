@@ -31,3 +31,15 @@ to encode the image which is CPU
 intensive and involves a disk write.
 Conclusion: keep it JSON, canvas,
 and avoid GIFs altogether.
+
+FILES:
+/ab/machi.html
+/ab/machi.js
+
+SCREENS:
+1. Intro - gallery and instructions, start
+by choosing field size (2^N) and brush size.
+2. Machi - draw tool. HSLA Sliders, grid,
+erase, frames, new frame, render.
+3. Render - edit, save.
+4. Gallery - scalable simple architecture.
