@@ -1,18 +1,18 @@
 /*
-*  Tenkion NodeJS Web Server
-*  Created By: aq@okaq.com
-*  On: 04/05/2011
-*  Running: nodejs v0.4.5
+*  Urasaki NodeJS Web Server	
+*  Created by: aq@okaq.com
+*  On: 04/23/2011
+*  Running: nodejs v0.4.6
 */
 
-var tenkion = {
+var urasaki = {
 	"init": function() {
 		// modules
 		this.http = require('http');
 		this.fs = require('fs');
 		this.url = require('url');
-		
-		// static_files
+
+		// static files
 		var nile0 = new nile();
 		this.niles = [
 			new nile(nile0.a[0], nile0.b[0], nile0.b[5]),
@@ -29,21 +29,6 @@ var tenkion = {
 	},
 	"load": function() {
 		for (var i = 0; i < this.niles.length; i++) {
-			// async readFile index closure out of sync
-			/*
-			this.fs.readFile(
-				this.niles[i].url.slice(1),
-				this.niles[i].enc,
-				function(err, data) {
-					if (err) {
-						console.log("fs.readFile arror reading file: " + tenkion.niles[i].url + ". Error message: " + err);
-						tenkion.niles[i].fd = "";
-					}
-					console.log("tenkion.niles[i]: " + tenkion.niles[i] + ". i:" + i);
-					tenkion.niles[i].fd = data;
-				}
-			);
-			*/
 			this.niles[i].fd = this.fs.readFileSync(this.niles[i].url.slice(1), this.niles[i].enc);
 		}
 	},
@@ -66,7 +51,7 @@ var tenkion = {
 				res.end("The app you requested: " + req.url + " does not exist.\n" + (new Date().toUTCString()));
 			}
 		});	
-			console.log("okaq.com web server (tenkion) started. Listening on port 8000...");
+			console.log("okaq.com web server (urasaki) started. Listening on port 8000...");
 		
 		this.server.listen(8000, "127.0.0.1");
 	}
@@ -96,26 +81,9 @@ nile.prototype.a = [
 	"/ab/speed.js",
 	"/ab/leek.js",
 	"/ab/chardata.js",
-	"/ab/naif.js"
+	"/ab/naif.js",
+	"/ab/machi.html",
+	"/ab/machi.js"
 ]; 
 
-tenkion.init();
-
-// NOTES
-// nextus: use fs.readdir()
-
-	/* kokaqu is our tools app
-	// located in chicha to expose to user
-	// kigu: grid drawing tool (color, export to json)
-	"/kokaqu/ko.html",
-	"/kokaqu/ko.js",
-	"/kokaqu/kigu.html",
-	"/kokaqu/kigu.js"
-	*/
-
-/* okaq.com/machi is the new grid draw animator
-*  run on separate nodejs server instance
-*  actually want one server on port 80 no redirect
-*  handle cookies for session management
-*/
-
+urasaki.init();

@@ -43,3 +43,7 @@ by choosing field size (2^N) and brush size.
 erase, frames, new frame, render.
 3. Render - edit, save.
 4. Gallery - scalable simple architecture.
+
+SESSION:
+Options include cookies and query string.
+Eventually this would be wired to redis.
