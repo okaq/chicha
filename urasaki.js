@@ -2,7 +2,7 @@
 *  Urasaki NodeJS Web Server	
 *  Created by: aq@okaq.com
 *  On: 04/23/2011
-*  Running: nodejs v0.4.6
+*  Running: nodejs v0.4.7
 */
 
 var urasaki = {
@@ -41,13 +41,13 @@ var urasaki = {
 			} else if (req.url == "/speed") {
 				i0 = 3;				
 			} else {
-				i0 = tenkion.niles[0].a.indexOf(req.url);
+				i0 = urasaki.niles[0].a.indexOf(req.url);
 			}	
 			if (i0 != undefined && i0 != -1) {
-				res.writeHead(200, tenkion.niles[i0].hdr);
-				res.end(tenkion.niles[i0].fd);
+				res.writeHead(200, urasaki.niles[i0].hdr);
+				res.end(urasaki.niles[i0].fd);
 			} else {
-				res.writeHead(200, tenkion.niles[0].b[2]);
+				res.writeHead(200, urasaki.niles[0].b[2]);
 				res.end("The app you requested: " + req.url + " does not exist.\n" + (new Date().toUTCString()));
 			}
 		});	
